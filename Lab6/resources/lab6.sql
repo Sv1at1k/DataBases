@@ -1,0 +1,77 @@
+CREATE DATABASE tables
+use tables
+GO
+xp_readerrorlog 0, 1, N'Server is listening on' 
+GO
+CREATE TABLE table3(
+id INT PRIMARY KEY , 
+name NVARCHAR(100),
+age INT)
+CREATE TABLE table1 (
+id  INT PRIMARY KEY,
+table3_id INT FOREIGN KEY  (table3_id) REFERENCES table3(id) ,
+name NVARCHAR(100),
+age INT)
+
+CREATE TABLE table2(
+id INT PRIMARY KEY, 
+name NVARCHAR(100),
+age INT
+)
+
+CREATE TABLE joint (
+table1_id INT FOREIGN KEY (table1_id) REFERENCES table1(id) NOT NULL,
+table2_id INT FOREIGN KEY (table2_id) REFERENCES table2(id) NOT NULL
+)
+INSERT INTO table1 VALUES(1,2, 'Перша табличка',10)
+INSERT INTO table1 VALUES(2,3,'Номер два',9)
+INSERT INTO table1 VALUES(3,1,'Бог любить трійцю',3)
+INSERT INTO table1 VALUES(4,7, 'table1_11',10)
+INSERT INTO table1 VALUES(5,1,'table1_5',9)
+INSERT INTO table1 VALUES(6,3,'table1_6',3)
+INSERT INTO table1 VALUES(9,10, 'table1_7',10)
+INSERT INTO table1 VALUES(7,8,'table1_8',9)
+INSERT INTO table1 VALUES(8,4,'table1_9',3)
+INSERT INTO table1 VALUES(10,9,'table1_10',3)
+
+INSERT INTO table2 VALUES(1,'TABLE 1 ',10)
+INSERT INTO table2 VALUES(2,'TAB2L',3)
+INSERT INTO table2 VALUES(3,'one-two-three',25)
+INSERT INTO table2 VALUES(4, 'table2_11',10)
+INSERT INTO table2 VALUES(5,'table2_5',9)
+INSERT INTO table2 VALUES(6,'table2_6',3)
+INSERT INTO table2 VALUES(9, 'table2_7',10)
+INSERT INTO table2 VALUES(7,'table2_8',9)
+INSERT INTO table2 VALUES(8,'table2_9',3)
+INSERT INTO table2 VALUES(10,'table2_10',3)
+
+INSERT INTO table3 VALUES(1,'Tablиця ',10)
+INSERT INTO table3 VALUES(2,'TAB',9)
+INSERT INTO table3 VALUES(3,'довгожитель',3)
+INSERT INTO table3 VALUES(4, 'table3_11',10)
+INSERT INTO table3 VALUES(5,'table3_5',9)
+INSERT INTO table3 VALUES(6,'table3_6',3)
+INSERT INTO table3 VALUES(9, 'table3_7',10)
+INSERT INTO table3 VALUES(7,'table3_8',9)
+INSERT INTO table3 VALUES(8,'table3_9',3)
+INSERT INTO table3 VALUES(10,'table3_10',3)
+ 
+INSERT INTO JOINT VALUES(1,3)
+INSERT INTO JOINT VALUES(2,1)
+INSERT INTO JOINT VALUES(3,2)
+INSERT INTO JOINT VALUES(5,7)
+INSERT INTO JOINT VALUES(2,4)
+INSERT INTO JOINT VALUES(10,2)
+INSERT INTO JOINT VALUES(6,3)
+INSERT INTO JOINT VALUES(8,1)
+INSERT INTO JOINT VALUES(4,2)
+
+SELECT * FROM table1
+SELECT * FROM table2
+SELECT * FROM table3
+SELECt * From joint
+
+
+
+
+
