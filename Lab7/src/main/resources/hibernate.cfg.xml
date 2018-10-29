@@ -4,28 +4,19 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/db_jdbc?serverTimezone=UTC</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/tables?serverTimezone=UTC</property>
         <!--?serverTimezone=UTC-->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">123456</property>
+        <property name="connection.password">admin</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hbm2ddl.auto">update</property> 
 
+    
 
-        <!-- configuration pool via c3p0-->
-        <!--<property name="hibernate.c3p0.min_size">1</property>-->
-        <!--<property name="hibernate.c3p0.max_size">5</property>-->
-        <!--<property name="hibernate.c3p0.timeout">300</property>-->
-        <!--<property name="hibernate.c3p0.max_statements">50</property>-->
-        <!--<property name="hibernate.c3p0.idle_test_period">3000</property>-->
-        <!-- DEPRECATED very expensive property name="c3p0.validate>-->
-
-        <mapping class="com.my.BookEntity"/>
-        <mapping class="com.my.CityEntity"/>
-        <mapping class="com.my.PersonEntity"/>
-
-        <!-- <property name="connection.username"/> -->
-        <!-- <property name="connection.password"/> -->
-        <!-- DB schema will be updated if needed -->
-        <!-- <property name="hbm2ddl.auto">update</property> -->
+        <mapping class="Table1Entity"/>
+        <mapping class="Table2Entity"/>
+		<mapping class="Table3Entity"/>
+		
     </session-factory>
 </hibernate-configuration>
